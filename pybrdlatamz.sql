@@ -10,3 +10,9 @@ GROUP BY species ORDER BY rec_gbif DESC;
 SELECT species, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Mammalia'
 GROUP BY species ORDER BY rec_gbif DESC;
 
+-- Socializacion de especies de plantas (7394 especies) por nombre cientifico y numero de registros GBIF presentes 
+-- en territorio del Deparatamento del Amazonas Colombia a la fecha de marzo del 2023
+SELECT scientific, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE kingdom = 'Plantae'
+GROUP BY scientific ORDER BY rec_gbif DESC;
+
+
