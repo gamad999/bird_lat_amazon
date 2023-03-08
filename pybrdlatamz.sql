@@ -20,6 +20,10 @@ GROUP BY scientific, family ORDER BY rec_gbif DESC;
 SELECT scientific, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Amphibia'
 GROUP BY scientific ORDER BY rec_gbif DESC;
 
+-- Socializacion de especies de insectos (2260 especies) por nombre cientifico y numero de registros GBIF presentes 
+-- en territorio del Deparatamento del Amazonas Colombia a la fecha de marzo del 2023
+SELECT scientific, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Insecta'
+GROUP BY scientific ORDER BY rec_gbif DESC;
 
 
 
