@@ -25,5 +25,10 @@ GROUP BY scientific ORDER BY rec_gbif DESC;
 SELECT scientific, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Insecta'
 GROUP BY scientific ORDER BY rec_gbif DESC;
 
+-- Consulta de familias de aves por numero de especies y registros GBIF
+SELECT family, COUNT(DISTINCT species) AS species, COUNT(DISTINCT id) AS rec_gbif 
+FROM gbif_amazonas WHERE class = 'Aves' GROUP BY family ORDER BY species DESC, rec_gbif;
+
+
 
 
