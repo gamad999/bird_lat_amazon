@@ -58,7 +58,7 @@ UPDATE gbif_amazonas SET nombre_familia = 'Garzas'
 WHERE family = 'Ardeidae';
 
 SELECT family_zh, family_pinyin, nombre_familia, COUNT(DISTINCT id) AS rec
-FROM gbif_amazonas WHERE family = 'Ardeidae' GROUP BY family_zh, family_pinyin, nombre_familia
+FROM gbif_amazonas WHERE family = 'Picidae' GROUP BY family_zh, family_pinyin, nombre_familia
 ORDER BY rec;
 
 
