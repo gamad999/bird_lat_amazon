@@ -70,9 +70,27 @@ GROUP BY family, family_zh, family_pinyin, nombre_familia ORDER BY species DESC,
 
 ALTER TABLE municipios_amazonas ADD COLUMN area_has double precision;
 
+ALTER TABLE municipios_amazonas ADD COLUMN riq_aves int,
+ADD COLUMN riq_mammalia int, ADD COLUMN riq_plantae int,
+ADD COLUMN riq_reptilia int, ADD COLUMN riq_amphibia int,
+ADD COLUMN riq_insecta int, ADD COLUMN riq_abejas int;
+
 -- Calculo de area en hectareas
 
 UPDATE municipios_amazonas SET area_has = (ST_Area(municipios_amazonas.geom) / 10000);
+
+-- Calculo de riqueza de especies de flora y fauna en el Departamento del Amazonas Colombia
+
+-------------------------- Aves --------------------------------------------------------
+UPDATE municipios_amazonas SET riq_aves = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+										  FROM gbif_amazonas
+										  WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+										  AND gbif_amazonas.class = 'Aves');
+										  
+
+-------------------------- Tablas resultado diagnostico de biodiversidad Amazonas --------
+
+
 
 
 
