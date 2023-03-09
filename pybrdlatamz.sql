@@ -45,21 +45,22 @@ FROM gbif_amazonas WHERE family = 'Thraupidae' GROUP BY species ORDER BY rec_gbi
 -------------------  Traducciones al chino mandarin -------------------------------------
 
 -- Traduccion de nombre de familias biologicas al chino mandarin
-UPDATE gbif_amazonas SET family_zh = '鹭科' WHERE family = 'Ardeidae';
+UPDATE gbif_amazonas SET family_zh = '巨嘴鳥' WHERE family = 'Ramphastidae';
 
 -- Traduccion fonetica nombre de familias al chino mandarin
-UPDATE gbif_amazonas SET family_pinyin = 'Lù kē' WHERE family = 'Ardeidae';
+UPDATE gbif_amazonas SET family_pinyin = 'Cǎo xiāo kē' WHERE family = 'Tytonidae';
 
 -- Nombre comun de familias biologicas en español
 ALTER TABLE gbif_amazonas ADD COLUMN nombre_familia varchar(80);
 
 -- Actualizacion nombre de familia biologica en español
-UPDATE gbif_amazonas SET nombre_familia = 'Garzas' 
-WHERE family = 'Ardeidae';
+UPDATE gbif_amazonas SET nombre_familia = 'Tucanes' 
+WHERE family = 'Ramphastidae';
 
-SELECT family_zh, family_pinyin, nombre_familia, COUNT(DISTINCT id) AS rec
-FROM gbif_amazonas WHERE family = 'Picidae' GROUP BY family_zh, family_pinyin, nombre_familia
-ORDER BY rec;
+SELECT family_zh, family_pinyin, nombre_familia, COUNT(DISTINCT species) AS species,
+COUNT(DISTINCT id) AS rec
+FROM gbif_amazonas WHERE class = 'Aves' AND family_zh IS NOT NULL
+GROUP BY family_zh, family_pinyin, nombre_familia ORDER BY species DESC, rec;
 
 
 
