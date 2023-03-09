@@ -1,22 +1,22 @@
-"family_zh","family_pinyin","nombre_familia","species","rec"
-"霸鶲","Bà wēng","tiránidos",98,12661
-"唐纳雀科","Táng nà què kē","tráupidos",66,11113
-"蟻鵙科","Yǐ jú kē","hormigueros, hormigueritos, bataráes, bataritos",65,4577
-"灶鸟科","Zào niǎo kē","horneros, espineros, canasteros",50,3737
-"蜂鸟","Fēngniǎo","picaflores, chuparrosas, tucusitos, pájaros mosca, ermitaños",40,3357
-"鹰科","Yīng kē","Aguilas y gavilanes",33,3962
-"鹦鹉科","Yīngwǔ kē","Guacayamas, pericos y loras",27,8245
-"伞鸟科","Sǎn niǎo kē","Cotingas",25,3105
-"擬黃鸝科","Nǐ huánglí kē","Chamones, oropendolas y turpiales",20,5992
-"啄木鸟科","Zhuómùniǎo kē","Carpinteros",18,3355
-"鹭科","Lù kē","Garzas",16,3239
-"鸠鸽科","Jiū gē kē","Torcazas y tortolas",16,3426
-"喷鴷科","Pēn liè kē","Bobos y monjitas",14,1611
-"燕科","Yàn kē","Golondrinas",14,2169
-"隼科","Sǔn kē","Halcones",14,2680
-"鹬科","Yù kē","Andarrios y caicas",13,324
-"侏儒鸟科","Zhūrú niǎo kē","Saltarines",12,1159
-"鸫科","Dōng kē","Solitarios, zorzales y mirlas",11,1314
-"杜鹃科","Dùjuān kē","Cuclillos, garrapateros y cucos",11,3261
-"咬鹃科","Yǎo juān kē","Trogones y quetzales",9,1298
-"巨嘴鳥","Jù zuǐ niǎo","Tucanes",9,2014
+"family","family_zh","family_pinyin","nombre_familia","species","rec"
+"Tyrannidae","霸鶲","Bà wēng","tiránidos",98,12661
+"Thraupidae","唐纳雀科","Táng nà què kē","tráupidos",66,11113
+"Thamnophilidae","蟻鵙科","Yǐ jú kē","hormigueros, hormigueritos, bataráes, bataritos",65,4577
+"Furnariidae","灶鸟科","Zào niǎo kē","horneros, espineros, canasteros",50,3737
+"Trochilidae","蜂鸟","Fēngniǎo","picaflores, chuparrosas, tucusitos, pájaros mosca, ermitaños",40,3357
+"Accipitridae","鹰科","Yīng kē","Aguilas y gavilanes",33,3962
+"Psittacidae","鹦鹉科","Yīngwǔ kē","Guacayamas, pericos y loras",27,8245
+"Cotingidae","伞鸟科","Sǎn niǎo kē","Cotingas",25,3105
+"Icteridae","擬黃鸝科","Nǐ huánglí kē","Chamones, oropendolas y turpiales",20,5992
+"Picidae","啄木鸟科","Zhuómùniǎo kē","Carpinteros",18,3355
+"Ardeidae","鹭科","Lù kē","Garzas",16,3239
+"Columbidae","鸠鸽科","Jiū gē kē","Torcazas y tortolas",16,3426
+"Bucconidae","喷鴷科","Pēn liè kē","Bobos y monjitas",14,1611
+"Hirundinidae","燕科","Yàn kē","Golondrinas",14,2169
+"Falconidae","隼科","Sǔn kē","Halcones",14,2680
+"Scolopacidae","鹬科","Yù kē","Andarrios y caicas",13,324
+"Pipridae","侏儒鸟科","Zhūrú niǎo kē","Saltarines",12,1159
+"Turdidae","鸫科","Dōng kē","Solitarios, zorzales y mirlas",11,1314
+"Cuculidae","杜鹃科","Dùjuān kē","Cuclillos, garrapateros y cucos",11,3261
+"Trogonidae","咬鹃科","Yǎo juān kē","Trogones y quetzales",9,1298
+"Ramphastidae","巨嘴鳥","Jù zuǐ niǎo","Tucanes",9,2014

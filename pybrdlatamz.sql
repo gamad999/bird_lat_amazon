@@ -57,10 +57,10 @@ ALTER TABLE gbif_amazonas ADD COLUMN nombre_familia varchar(80);
 UPDATE gbif_amazonas SET nombre_familia = 'Tucanes' 
 WHERE family = 'Ramphastidae';
 
-SELECT family_zh, family_pinyin, nombre_familia, COUNT(DISTINCT species) AS species,
+SELECT family, family_zh, family_pinyin, nombre_familia, COUNT(DISTINCT species) AS species,
 COUNT(DISTINCT id) AS rec
 FROM gbif_amazonas WHERE class = 'Aves' AND family_zh IS NOT NULL
-GROUP BY family_zh, family_pinyin, nombre_familia ORDER BY species DESC, rec;
+GROUP BY family, family_zh, family_pinyin, nombre_familia ORDER BY species DESC, rec;
 
 
 
