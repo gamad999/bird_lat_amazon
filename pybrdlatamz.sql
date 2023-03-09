@@ -64,5 +64,16 @@ GROUP BY family, family_zh, family_pinyin, nombre_familia ORDER BY species DESC,
 
 
 
+--------- Diagnostico de recursos de biodiversidad en Municipios del Departamento Amazonas ----------
+
+--- Creacion de campos en la tabla espacial de Municipios del Departamento
+
+ALTER TABLE municipios_amazonas ADD COLUMN area_has double precision;
+
+-- Calculo de area en hectareas
+
+UPDATE municipios_amazonas SET area_has = (ST_Area(municipios_amazonas.geom) / 10000);
+
+
 
 
