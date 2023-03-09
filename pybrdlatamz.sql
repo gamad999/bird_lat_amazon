@@ -82,10 +82,19 @@ UPDATE municipios_amazonas SET area_has = (ST_Area(municipios_amazonas.geom) / 1
 -- Calculo de riqueza de especies de flora y fauna en el Departamento del Amazonas Colombia
 
 -------------------------- Aves --------------------------------------------------------
-UPDATE municipios_amazonas SET riq_aves = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+UPDATE municipios_amazonas 
+SET riq_aves = (SELECT COUNT(DISTINCT gbif_amazonas.species)
 										  FROM gbif_amazonas
 										  WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
 										  AND gbif_amazonas.class = 'Aves');
+										  
+
+--------------------------- Mamiferos ----------------------------------------------------
+UPDATE municipios_amazonas 
+SET riq_mammalia = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+										  FROM gbif_amazonas
+										  WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+										  AND gbif_amazonas.class = 'Mammalia');
 										  
 
 -------------------------- Tablas resultado diagnostico de biodiversidad Amazonas --------
