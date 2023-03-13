@@ -1,5 +1,9 @@
 -- Inicio del Proyecto Bird Latam Amazon con propositos ecoturisticos
 
+-- Creacion de extension postGIS para soporte de datos georreferenciados
+
+CREATE EXTENSION postgis;
+
 -- Socializacion de especies de aves (764 especies) por nombre cientifico y numero de registros GBIF presentes 
 -- en territorio del Deparatamento del Amazonas Colombia a la fecha de marzo del 2023
 SELECT species, family, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Aves'
@@ -65,15 +69,17 @@ GROUP BY family, family_zh, family_pinyin, nombre_familia ORDER BY species DESC,
 
 
 --------- Diagnostico de recursos de biodiversidad en Municipios del Departamento Amazonas ----------
-
+-- Fuente de datos georreferenciados de biodiversidad: "Global Biodiversity Information Facility GBIF"----
 --- Creacion de campos en la tabla espacial de Municipios del Departamento
 
-ALTER TABLE municipios_amazonas ADD COLUMN area_has double precision;
+ALTER TABLE municipios_amazonas ADD COLUMN area_has double precision; 
 
 ALTER TABLE municipios_amazonas ADD COLUMN riq_aves int,
-ADD COLUMN riq_mammalia int, ADD COLUMN riq_plantae int,
-ADD COLUMN riq_reptilia int, ADD COLUMN riq_amphibia int,
-ADD COLUMN riq_insecta int, ADD COLUMN riq_abejas int;
+ADD COLUMN riq_mammal int, ADD COLUMN riq_planta int,
+ADD COLUMN riq_reptil int, ADD COLUMN riq_amphib int,
+ADD COLUMN riq_insect int, ADD COLUMN riq_abejas int;
+
+ALTER TABLE municipios_amazonas ADD COLUMN riq_colibri int;
 
 -- Calculo de area en hectareas
 
@@ -95,11 +101,53 @@ SET riq_mammalia = (SELECT COUNT(DISTINCT gbif_amazonas.species)
 FROM gbif_amazonas
 WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
 AND gbif_amazonas.class = 'Mammalia');
-										  
+
+
+-------------------------- Plantas -------------------------------------------------------
+UPDATE municipios_amazonas 
+SET riq_planta = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+FROM gbif_amazonas
+WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+AND gbif_amazonas.kingdom = 'Plantae');
+
+
+-------------------------- Anfibios ----------------------------------------------------
+UPDATE municipios_amazonas 
+SET riq_amphib = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+FROM gbif_amazonas
+WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+AND gbif_amazonas.class = 'Amphibia');
+
+
+-------------------------- Insectos -----------------------------------------------------
+UPDATE municipios_amazonas 
+SET riq_insect = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+FROM gbif_amazonas
+WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+AND gbif_amazonas.class = 'Insecta');
+
+
+-------------------------- Abejas --------------------------------------------------------
+UPDATE municipios_amazonas 
+SET riq_abejas = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+FROM gbif_amazonas
+WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+AND (gbif_amazonas.family = 'Apidae' OR gbif_amazonas.family = 'Colletidae' OR
+	gbif_amazonas.family = 'Halictidae' OR gbif_amazonas.family = 'Megachilidae'));
+
+
+-------------------------- Colibries -----------------------------------------------------
+UPDATE municipios_amazonas 
+SET riq_colibri = (SELECT COUNT(DISTINCT gbif_amazonas.species)
+FROM gbif_amazonas
+WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
+AND gbif_amazonas.family = 'Trochilidae');
+
 
 -------------------------- Tablas resultado diagnostico de biodiversidad Amazonas --------
 
-
+SELECT mpio_cnmbr AS municipio, riq_aves, riq_mammal, riq_planta, riq_amphib,
+riq_insect, riq_abejas, riq_colibri FROM municipios_amazonas;
 
 
 
