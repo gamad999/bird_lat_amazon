@@ -37,6 +37,13 @@ WHERE family = 'Apidae' OR family = 'Colletidae' OR family = 'Halictidae' OR
 family = 'Megachilidae'
 GROUP BY scientific, family ORDER BY rec_gbif DESC;
 
+-- Socializacion de especies de colibries (41 especies) por nombre cientifico y numero de registros GBIF presentes 
+-- en territorio del Departamento del Amazonas Colombia a la fecha de marzo del 2023
+
+SELECT species, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas 
+WHERE family = 'Trochilidae'
+GROUP BY species ORDER BY rec_gbif DESC;
+
 
 
 -- Consulta de familias de aves por numero de especies y registros GBIF
