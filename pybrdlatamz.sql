@@ -146,8 +146,12 @@ AND gbif_amazonas.family = 'Trochilidae');
 
 -------------------------- Tablas resultado diagnostico de biodiversidad Amazonas --------
 
-SELECT mpio_cnmbr AS municipio, riq_aves, riq_mammal, riq_planta, riq_amphib,
+SELECT mpio_cnmbr AS municipio, name_zh, pinyin, area_has, riq_aves, riq_mammal, riq_planta, riq_amphib,
 riq_insect, riq_abejas, riq_colibri FROM municipios_amazonas;
+
+------------------------- Traduccion a chino mandarin de nombres de Municipios ----------
+UPDATE municipios_amazonas SET name_zh = '桑坦德港' 
+WHERE mpio_cnmbr = 'SANTANDER (Araracuara)';
 
 
 

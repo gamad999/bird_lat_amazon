@@ -1,12 +1,12 @@
-"municipio","riq_aves","riq_mammal","riq_planta","riq_amphib","riq_insect","riq_abejas","riq_colibri"
-"LETICIA",711,92,2631,100,1212,24,33
-"EL ENCANTO",285,1,553,0,17,2,13
-"LA CHORRERA",54,3,1079,0,56,2,0
-"LA PEDRERA",268,45,1255,23,125,0,11
-"TARAPACÁ",399,31,2212,1,58,0,15
-"LA VICTORIA (Pacoa)",0,0,220,0,1,0,0
-"MIRITÍ-PARANÁ (Campoamor)",61,1,1892,1,2,0,7
-"PUERTO ALEGRÍA",4,6,19,0,22,0,0
-"PUERTO ARICA",60,5,656,2,40,0,0
-"PUERTO NARIÑO",549,46,1028,70,150,0,23
-"SANTANDER (Araracuara)",263,5,2905,17,34,0,15
+"municipio","name_zh","pinyin","area_has","riq_aves","riq_mammal","riq_planta","riq_amphib","riq_insect","riq_abejas","riq_colibri"
+"LETICIA","萊蒂西亞","Lái dì xiya",615376.211371551,711,92,2631,100,1212,24,33
+"EL ENCANTO","埃爾恩坎托","Ai er en kan tuo",1090046.44029335,285,1,553,0,17,2,13
+"LA CHORRERA","拉喬雷拉","La qiáo léi la",1273114.30954922,54,3,1079,0,56,2,0
+"LA PEDRERA","拉佩德雷拉","La pèi dé léi la",1360487.08905271,268,45,1255,23,125,0,11
+"TARAPACÁ","塔拉帕拉","Ta la pà la",915217.884595038,399,31,2212,1,58,0,15
+"LA VICTORIA (Pacoa)","拉維多利亞","La wéiduolìya",142891.603275072,0,0,220,0,1,0,0
+"MIRITÍ-PARANÁ (Campoamor)","米里蒂-帕拉納","Mi li dì-pà la nà",1682432.22809273,61,1,1892,1,2,0,7
+"PUERTO ALEGRÍA","阿萊格里亞港","A lái gé li ya gang",851270.486589003,4,6,19,0,22,0,0
+"PUERTO ARICA","阿里卡港","Ali ka gang",1375508.1720491,60,5,656,2,40,0,0
+"PUERTO NARIÑO","納里尼奧港","Nà li ní ào gang",150337.952430787,549,46,1028,70,150,0,23
+"SANTANDER (Araracuara)","桑坦德港","Sang tan dé gang",1471378.79180449,263,5,2905,17,34,0,15
