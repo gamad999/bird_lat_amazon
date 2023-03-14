@@ -97,6 +97,7 @@ ADD COLUMN riq_reptil int, ADD COLUMN riq_amphib int,
 ADD COLUMN riq_insect int, ADD COLUMN riq_abejas int;
 
 ALTER TABLE municipios_amazonas ADD COLUMN riq_colibri int;
+ALTER TABLE gbif_amazonas ADD COLUMN frutal int;
 
 -- Calculo de area en hectareas
 
@@ -205,3 +206,13 @@ UPDATE hoteles_amazonas SET correo = 'gerenciao@wairahotel.com.co' WHERE nombre 
 UPDATE hoteles_amazonas SET web = 'https://wairahotel.com.co/' WHERE nombre = 'Waira Suites Hotel'
 UPDATE hoteles_amazonas SET servicios = '' WHERE nombre = 'Casa Hotel Maune'
 UPDATE hoteles_amazonas SET ctrip = 'https://hotels.ctrip.com/hotels/3662657.html#ctm_ref=www_hp_bs_lst' WHERE nombre = 'Waira Suites Hotel'
+
+
+----------------- Generacion de tabla de datos basicos de hoteles (Propuesta de desarrollo) ----------------
+
+SELECT nombre, nombre_zh, pinyin, telefonos, correo, ctrip
+FROM hoteles_amazonas;
+
+
+
+
