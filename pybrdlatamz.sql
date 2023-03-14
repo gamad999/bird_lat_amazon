@@ -87,7 +87,7 @@ GROUP BY family, family_zh, family_pinyin, nombre_familia ORDER BY species DESC,
 
 --------- Diagnostico de recursos de biodiversidad en Municipios del Departamento Amazonas ----------
 -- Fuente de datos georreferenciados de biodiversidad: "Global Biodiversity Information Facility GBIF"----
---- Creacion de campos en la tabla espacial de Municipios del Departamento
+--- Creacion de campos en la tabla espacial de Municipios y registros GBIF del Departamento
 
 ALTER TABLE municipios_amazonas ADD COLUMN area_has double precision; 
 
@@ -161,6 +161,16 @@ FROM gbif_amazonas
 WHERE ST_Intersects(municipios_amazonas.geom, gbif_amazonas.geom)
 AND gbif_amazonas.family = 'Trochilidae');
 
+
+----------------- Frutas silvestres de Colombia -----------------------------------------
+------ Fuentes: Romero, R. "Frutas silvestres de Colombia". 2 Edicion. 1991.---------------
+------- SINCHI. Frutas de la Amazonia: Colombia. -----------------------------------------
+UPDATE gbif_amazonas SET frutal = 1 WHERE genus = 'Inga';
+
+------ Construccion de tabla frutales silvestres ----------------------------------------
+
+SELECT scientific, family, COUNT(DISTINCT id) AS rec_gbif 
+FROM gbif_amazonas WHERE frutal = 1 GROUP BY scientific, family ORDER BY rec_gbif DESC;
 
 -------------------------- Tablas resultado diagnostico de biodiversidad Amazonas --------
 
