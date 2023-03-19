@@ -56,12 +56,57 @@ ALTER TABLE gbif_amazonas ADD COLUMN family_zh varchar(90);
 -- Creacion de campo nombre de familia pinyin en chino mandarin
 ALTER TABLE gbif_amazonas ADD COLUMN family_pinyin varchar(90);
 
--- Creacion de campo nombre comun en chino mandarin
+-- Creacion de campo nombre comun y traduccion fonetica pinyin del nombre de especies en chino mandarin
 ALTER TABLE gbif_amazonas ADD COLUMN name_zh varchar(150);
+
+ALTER TABLE gbif_amazonas ADD COLUMN name_pinyin varchar(150);
+
+-- Nombres comunes de especies en ingles, español, frances y portugues
+ALTER TABLE gbif_amazonas 
+ADD COLUMN name_en varchar(60), ADD COLUMN name_es varchar(80), ADD COLUMN name_fr varchar(50),
+ADD COLUMN name_pr varchar(50);
+
+UPDATE gbif_amazonas SET name_zh = '白颊红嘴蜂鸟' WHERE species = 'Chlorestes cyanus';
+UPDATE gbif_amazonas SET name_pinyin = 'Bái jiá hóng zuǐ fēngniǎo' WHERE species = 'Chlorestes cyanus'
+UPDATE gbif_amazonas SET name_en = 'White-chinned sapphire' WHERE species = 'Chlorestes cyanus';
+UPDATE gbif_amazonas SET name_es = 'zafiro gorgiblanco o de cabeza azul, picaflor lazulita' WHERE species = 'Chlorestes cyanus';
+UPDATE gbif_amazonas SET name_fr = 'Saphir azuré' WHERE species = 'Chlorestes cyanus';
+UPDATE gbif_amazonas SET name_pr = 'Beija-flor-roxo' WHERE species = 'Chlorestes cyanus';
+
 
 -- Consulta de familias
 SELECT species, COUNT(DISTINCT id) AS rec_gbif
-FROM gbif_amazonas WHERE family = 'Thraupidae' GROUP BY species ORDER BY rec_gbif DESC;
+FROM gbif_amazonas WHERE family = 'Trochilidae' GROUP BY species ORDER BY rec_gbif DESC;
+
+-- Construccion de tabla de especies de colibries con traduccion de nombres comunes a chino mandarin,
+-- español, ingles, frances y portugues
+
+SELECT species, name_es AS nombre_esp, name_zh AS nombre_chino, name_pinyin AS pinyin,
+name_en AS nombre_ingl, name_fr AS nombre_franc, name_pr AS nombre_portg, 
+COUNT(DISTINCT id) AS gbif_records FROM gbif_amazonas WHERE family = 'Trochilidae' AND species IS NOT NULL
+GROUP BY species, nombre_esp, nombre_chino, pinyin, nombre_ingl, nombre_franc, nombre_portg
+ORDER BY gbif_records DESC;
+
+
+-------------------- Segmentacion por Municipio del Departamento de Amazonas Colombia -----
+
+ALTER TABLE gbif_amazonas ADD COLUMN municipio varchar(80);
+
+UPDATE gbif_amazonas 
+SET municipio = municipios_amazonas.mpio_cnmbr
+FROM municipios_amazonas
+WHERE ST_Intersects(gbif_amazonas.geom, municipios_amazonas.geom);
+
+
+SELECT locality, decimallat, decimallon, COUNT(DISTINCT id) AS rec_gbif, COUNT(DISTINCT species) AS species
+FROM gbif_amazonas WHERE class = 'Aves' 
+GROUP BY locality, decimallat, decimallon ORDER BY rec_gbif DESC, species;
+
+
+
+
+
+
 
 -------------------  Traducciones al chino mandarin -------------------------------------
 
@@ -222,6 +267,14 @@ UPDATE hoteles_amazonas SET ctrip = 'https://hotels.ctrip.com/hotels/3662657.htm
 
 SELECT nombre, nombre_zh, pinyin, telefonos, correo, ctrip
 FROM hoteles_amazonas;
+
+
+SELECT species, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Aves'
+GROUP BY species ORDER BY rec_gbif DESC;
+
+
+
+
 
 
 
