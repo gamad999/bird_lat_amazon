@@ -98,9 +98,7 @@ FROM municipios_amazonas
 WHERE ST_Intersects(gbif_amazonas.geom, municipios_amazonas.geom);
 
 
-SELECT locality, decimallat, decimallon, COUNT(DISTINCT id) AS rec_gbif, COUNT(DISTINCT species) AS species
-FROM gbif_amazonas WHERE class = 'Aves' 
-GROUP BY locality, decimallat, decimallon ORDER BY rec_gbif DESC, species;
+
 
 
 
@@ -277,5 +275,70 @@ GROUP BY species ORDER BY rec_gbif DESC;
 
 
 
+----  Creacion de base de datos de lugares y atracciones turisticas en Deparatamento de Amazonas
 
+-- Consulta de localidades en la tabla de registros biologicos GBIF Amazonas
+
+SELECT locality, decimallat, decimallon, COUNT(DISTINCT id) AS rec_gbif, COUNT(DISTINCT species) AS species
+FROM gbif_amazonas WHERE class = 'Aves' 
+GROUP BY locality, decimallat, decimallon ORDER BY rec_gbif DESC, species;
+
+-- Creacion de tabla de sitios turisticos propuestos
+
+CREATE TABLE sitios_turisticos(id SERIAL PRIMARY KEY, nombre varchar(80),
+							  municipio varchar(50), latitud double precision,
+							  longitud double precision);
+							  
+
+INSERT INTO sitios_turisticos(nombre, latitud, longitud) 
+VALUES('Rio Amazonas - Puerto Nariño', -3.772705, -70.381424);
+
+INSERT INTO sitios_turisticos(nombre, latitud, longitud)
+VALUES('Varzea PN Amacayacu', -3.814165, -70.2605),
+	   ('PN Amacayacu - Tierra Firma', -3.804732, -70.26116);
+
+
+INSERT INTO sitios_turisticos(nombre, latitud, longitud)
+VALUES('Laguna Tarapoto', -3.794373, -70.42717),
+('Isla de Los Micos', -4.036043, -70.10654),
+('Lagos Yahuarcaca', -4.189504, -69.95843),
+('Hotel Malokamazonas', -4.214694, -69.9369),
+('Quebrada Tucuchira', -4.019386, -70.11283),
+('Parque Ecológico Mundo Amazónico', -4.145263, -69.92987),
+('Isla Mocagua y Zaragocilla', -3.85, -70.23333),
+('Parque Santander', -4.212645, -69.94298),
+('Isla Fantasía', -4.202146, -69.95933),
+('Barrio Punta Brava - Leticia', -4.216849, -69.93832),
+('Sendero San Rafael', -1.711944, -73.21333),
+('Isla Ronda', -4.153002, -69.99372),
+('Reserva Natural Selva', -4.124637, -69.94567),
+('Parque Natural Amacayacu', -3.391333, -70.15283),
+('Quebrada Matamatá', -3.818111, -70.256226),
+('Puerto Nariño - Pueblo', -3.77933, -70.363976),
+('Amazon Bird Lodge - Puerto Nariño', -3.787876, -70.356125),
+('Reserva Natural Cerca Viva', -4.122799, -69.947975),
+('Sector La Playa', -4.2045, -69.9536),
+('Reserva Natural Tanimboca', -4.120865, -69.952034),
+('Rio Tacana - Maloka William', -4.135825, -69.921295),
+('Comunidad Bora - Muinane Km 17', -4.065, -69.979),
+('Puerto Nariño - zona alta', -3.772191, -70.35739),
+('San Pedro de Tipisca', -3.682451, -70.59858),
+('Comunidad Ronda', -4.131566, -69.99239),
+('Laguna Pexiboy 10 Km', -2.6138, -69.8452),
+('Reserva Ara', -4.095942, -69.95063),
+('Leticia - Sendero norte', -4.156991, -69.93536),
+('Comunidad Indígena Mocagua', -3.825149, -70.25331),
+('Comunidad Indígena San Martín de Amacayacu', -3.776302, -70.30106),
+('Barrio Costa Rica - Leticia', -4.203987, -69.93603),
+('Tarapoto - Canales internos', -3.821427, -70.49108),
+('Laguna El correo', -3.781046, -70.395195),
+('Sendero Puerto Nariño a San Martín', -3.764346, -70.334755),
+('Aeropuerto Internacional Alfredo Vasquez Cobo', -4.197502, -69.94276),
+('Reserva Wochine', -3.778989, -70.35819),
+('Isla Mocagua - Lago Huito', -3.844986, -70.2529),
+('Lago Sapo - rio Loretoyacu', -3.779762, -70.3763),
+('Puerto fluvial - Leticia', -4.22317, -69.94498),
+('Río Loretoyacu', -3.77847, -70.37334),
+('Reserva Flor de Loto', -4.184499, -69.97337),
+('Casa Gregorio', -3.775628, -70.30518);
 
