@@ -365,3 +365,14 @@ CREATE INDEX idx_sitios_turisticos_geom ON sitios_turisticos USING gist(geom);
 UPDATE sitios_turisticos SET municipio = municipios_amazonas.mpio_cnmbr
 FROM municipios_amazonas WHERE ST_Intersects(sitios_turisticos.geom, municipios_amazonas.geom);
 
+--- Construcción de buffer de capa de puntos de sitios turisticos con distancia de radio de 150 m
+
+CREATE TABLE buff_sitios_turisticos(id SERIAL PRIMARY KEY, nombre varchar(80),
+								   municipio varchar(50), latitud double precision,
+								   longitud double precision, geom geometry(Polygon, 3117));
+
+
+INSERT INTO buff_sitios_turisticos(geom, nombre, municipio, latitud, longitud)
+SELECT ST_Buffer(geom, 150), nombre, municipio, latitud, longitud FROM sitios_turisticos;
+
+
