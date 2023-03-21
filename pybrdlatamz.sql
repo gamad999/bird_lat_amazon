@@ -342,3 +342,9 @@ VALUES('Laguna Tarapoto', -3.794373, -70.42717),
 ('Reserva Flor de Loto', -4.184499, -69.97337),
 ('Casa Gregorio', -3.775628, -70.30518);
 
+--- Enlace espacial de tabla de sitios turisticos con tabla de Municipios del Amazonas
+--- para actualizar campo de localizacion de cada sitio dentro de Area de Aplicación de 
+--- PBOT del correspondiente Municipio
+
+UPDATE sitios_turisticos SET municipio = municipios_amazonas.mpio_cnmbr
+FROM municipios_amazonas WHERE ST_Intersects()
