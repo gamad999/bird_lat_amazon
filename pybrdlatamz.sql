@@ -347,6 +347,13 @@ VALUES('Laguna Tarapoto', -3.794373, -70.42717),
 
 SELECT AddGeometryColumn('public', 'sitios_turisticos', 'geom', 3117, 'POINT', 2);
 
+--- Espacializacion de datos de coordenadas geográficas de sitios turísticos y transformación 
+---- de coordenadas geográficas a coordenadas planas en el sistema proyectado 
+-- Magna Sirgas Colombia Central con EPSG: 3117
+
+UPDATE sitios_turisticos 
+SET geom = ST_Transform(ST_GeomFromText('POINT(' || longitud || ' ' || latitud || ')', 4326), 3117);
+
 --- Enlace espacial de tabla de sitios turisticos con tabla de Municipios del Amazonas
 --- para actualizar campo de localizacion de cada sitio dentro de Area de Aplicación de 
 --- PBOT del correspondiente Municipio
