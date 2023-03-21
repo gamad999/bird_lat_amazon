@@ -354,9 +354,14 @@ SELECT AddGeometryColumn('public', 'sitios_turisticos', 'geom', 3117, 'POINT', 2
 UPDATE sitios_turisticos 
 SET geom = ST_Transform(ST_GeomFromText('POINT(' || longitud || ' ' || latitud || ')', 4326), 3117);
 
+-- Creación de indice espacial de la columna de geometria de sitios turisticos
+
+CREATE INDEX idx_sitios_turisticos_geom ON sitios_turisticos USING gist(geom);
+
 --- Enlace espacial de tabla de sitios turisticos con tabla de Municipios del Amazonas
 --- para actualizar campo de localizacion de cada sitio dentro de Area de Aplicación de 
 --- PBOT del correspondiente Municipio
 
 UPDATE sitios_turisticos SET municipio = municipios_amazonas.mpio_cnmbr
 FROM municipios_amazonas WHERE ST_Intersects(sitios_turisticos.geom, municipios_amazonas.geom);
+
