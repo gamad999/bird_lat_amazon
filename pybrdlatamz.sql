@@ -359,4 +359,4 @@ SET geom = ST_Transform(ST_GeomFromText('POINT(' || longitud || ' ' || latitud |
 --- PBOT del correspondiente Municipio
 
 UPDATE sitios_turisticos SET municipio = municipios_amazonas.mpio_cnmbr
-FROM municipios_amazonas WHERE ST_Intersects()
+FROM municipios_amazonas WHERE ST_Intersects(sitios_turisticos.geom, municipios_amazonas.geom);
