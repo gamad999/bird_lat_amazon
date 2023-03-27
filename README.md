@@ -28,3 +28,26 @@ Cuando se ha tomado la determinación de implementar un SIG y al margen del área 
 5.	Definir el Modelo de Datos, que es la estructura formal de los datos para su implementación. El Modelo expresa las especificaciones, reglas y restricciones para la captura, almacenamiento, consulta, actualización y manipulación de los datos del Sistema.
 6.	Implementar el SIG, que consiste en la preparación de la información relevante, su captura mediante digitalización o rasterización, la creación de tablas de atributos asociadas a los objetos o entidades espaciales y el almacenamiento de los valores de los atributos que deberán llenar las columnas o campos correspondientes. Esto último puede lograrse mediante digitación directa y alojamiento de servidores de bases de datos espaciales en la nube. La implementación del SIG también implica la estructuración de las entidades temáticas derivadas de otras, mediante análisis en el motor de administración de la base de datos con soporte espacial y el software SIG (modelamiento cartográfico). Finalmente y una vez toda la información se encuentre estructurada y almacenada en el sistema, es necesario diseñar todos aquellos programas, macros, algoritmos y aplicaciones que de acuerdo con los requerimientos específicos son indispensables para extraer, actualizar información o derivar nueva a partir de la que está almacenada en el Sistema. Estos programas se diseñan en el lenguaje particular del software utilizado.
 7.	Reacondicionar el Modelo original de acuerdo con los resultados y el desempeño del Sistema. Esto significa que el Modelo de Datos se pone a prueba mediante la manipulación de la información en el Sistema, por parte de los usuarios. Las expectativas deben satisfacerse en aspectos como: el desempeño del Sistema o dicho de otra forma, la velocidad de respuesta cuando se realzan peticiones a los servicios implementados. Tambien se espera la generación eficiente ya sea de reportes tabulares o mapas, la velocidad y efectividad en los procesos de actualización de los datos, etc.
+
+
+### Servidores en la nube y software propuestos para el desarrollo de la solución tecnológica
+
+#### Software
+
+1.	Motor de base de datos PostgreSQL y extensión PostGIS para soporte de datos espaciales
+2. 	Software SIG QGIS 2.8 (Software libre)
+3.	Sistema de control de versiones GIT y plataforma de alojamiento de repositorios remotos en internet GitHub.
+
+#### Servidores
+
+1.	Amazon Web Services AWS - Relational Databases Services RDS (alojamiento de base de datos espacial en la nube)
+2.	ESRI - ArcGIS Online (Desarrollo de Aplicación Web Móvil para el despliegue de información geográfica y temática - Geovisor web)
+
+### Autor de la Propuesta:
+
+Geovanny Andrés Marmolejo De Oro
+Geógrafo egresado de la Universidad del Valle
+M.P. 464 / 2012 Colegio Profesional de Geógrafos de Colombia
+email: geoconsultores.eu@gmail.com
+Teléfono móvil: (57) 315 5429106
+Repositorios Github: www.github.com/gamad999
