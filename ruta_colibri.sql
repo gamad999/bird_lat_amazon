@@ -40,22 +40,22 @@ FROM ruta_colibri;
 
 --- Traduccion a nombres comunes en chino, español, ingles, portugues y frances
 
-UPDATE ruta_colibri SET name_zh = gbif_amazonas.name_zh FROM gbif_amazonas
+UPDATE ruta_colibri SET name_zh = '细嘴隐蜂鸟' 
 WHERE ruta_colibri.species = 'Phaethornis philippii';
 
-UPDATE ruta_colibri SET pinyin = gbif_amazonas.name_pinyin FROM gbif_amazonas
+UPDATE ruta_colibri SET pinyin = 'Xì zuǐ yǐn fēngniǎo' 
 WHERE ruta_colibri.species = 'Phaethornis philippii';
 
-UPDATE ruta_colibri SET name_en = gbif_amazonas.name_en FROM gbif_amazonas
+UPDATE ruta_colibri SET name_en = 'Needle-billed Hermit' 
 WHERE ruta_colibri.species = 'Phaethornis philippii';
 
-UPDATE ruta_colibri SET name_es = gbif_amazonas.name_es FROM gbif_amazonas
+UPDATE ruta_colibri SET name_es = 'Ermitaño picoaguja' 
 WHERE ruta_colibri.species = 'Phaethornis philippii';
 
-UPDATE ruta_colibri SET name_pr = gbif_amazonas.name_pr FROM gbif_amazonas
+UPDATE ruta_colibri SET name_pr = 'Rabo-branco-amarelo'
 WHERE ruta_colibri.species = 'Phaethornis philippii';
 
-UPDATE ruta_colibri SET name_fr = gbif_amazonas.name_fr FROM gbif_amazonas
+UPDATE ruta_colibri SET name_fr = 'Ermite de Filippi ' 
 WHERE ruta_colibri.species = 'Phaethornis philippii';
 
 
