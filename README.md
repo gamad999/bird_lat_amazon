@@ -46,8 +46,13 @@ Cuando se ha tomado la determinación de implementar un SIG y al margen del área 
 ### Autor de la Propuesta:
 
 Geovanny Andrés Marmolejo De Oro
+
 Geógrafo egresado de la Universidad del Valle
+
 M.P. 464 / 2012 Colegio Profesional de Geógrafos de Colombia
+
 email: geoconsultores.eu@gmail.com
+
 Teléfono móvil: (57) 315 5429106
+
 Repositorios Github: www.github.com/gamad999
