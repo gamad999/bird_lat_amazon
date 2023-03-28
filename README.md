@@ -43,6 +43,12 @@ Cuando se ha tomado la determinación de implementar un SIG y al margen del área 
 1.	Amazon Web Services AWS - Relational Databases Services RDS (alojamiento de base de datos espacial en la nube)
 2.	ESRI - ArcGIS Online (Desarrollo de Aplicación Web Móvil para el despliegue de información geográfica y temática - Geovisor web)
 
+### Guía de navegación archivos en este repositorio de Github
+
+Archivo pybrdlatamz.sql: puede consultar el codigo SQL de diseño preliminar de la base de datos geográfica BirdLatam
+Fichero Tablas: puede consultar las tablas resultado de consultas preliminares a la bd sobre diagnostico de biodiversidad de flora y fauna e infraestructura turística
+
+
 ### Autor de la Propuesta:
 
 Geovanny Andrés Marmolejo De Oro
