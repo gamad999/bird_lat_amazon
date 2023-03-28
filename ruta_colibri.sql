@@ -37,3 +37,26 @@ WHERE ruta_colibri.species = gbif_amazonas.species;
 
 SELECT DISTINCT species, name_zh, pinyin, name_en, name_es, name_pr, name_fr 
 FROM ruta_colibri;
+
+--- Traduccion a nombres comunes en chino, español, ingles, portugues y frances
+
+UPDATE ruta_colibri SET name_zh = gbif_amazonas.name_zh FROM gbif_amazonas
+WHERE ruta_colibri.species = 'Phaethornis philippii';
+
+UPDATE ruta_colibri SET pinyin = gbif_amazonas.name_pinyin FROM gbif_amazonas
+WHERE ruta_colibri.species = 'Phaethornis philippii';
+
+UPDATE ruta_colibri SET name_en = gbif_amazonas.name_en FROM gbif_amazonas
+WHERE ruta_colibri.species = 'Phaethornis philippii';
+
+UPDATE ruta_colibri SET name_es = gbif_amazonas.name_es FROM gbif_amazonas
+WHERE ruta_colibri.species = 'Phaethornis philippii';
+
+UPDATE ruta_colibri SET name_pr = gbif_amazonas.name_pr FROM gbif_amazonas
+WHERE ruta_colibri.species = 'Phaethornis philippii';
+
+UPDATE ruta_colibri SET name_fr = gbif_amazonas.name_fr FROM gbif_amazonas
+WHERE ruta_colibri.species = 'Phaethornis philippii';
+
+
+
