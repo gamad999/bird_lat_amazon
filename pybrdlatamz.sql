@@ -4,6 +4,11 @@
 
 CREATE EXTENSION postgis;
 
+--- Creación de campo y enlace a la API - Backbone en chino de la "Global Biodiversity Information Facility, GBIF" ---
+
+ALTER TABLE gbif_amazonas ADD COLUMN gbif_backb varchar(150);
+UPDATE gbif_amazonas SET gbif_backb = CONCAT('https://www.gbif.org/zh/species/', taxonkey);
+
 -- Socializacion de especies de aves (764 especies) por nombre cientifico y numero de registros GBIF presentes 
 -- en territorio del Deparatamento del Amazonas Colombia a la fecha de marzo del 2023
 SELECT species, family, COUNT(DISTINCT id) AS rec_gbif FROM gbif_amazonas WHERE class = 'Aves'
