@@ -70,7 +70,32 @@ UPDATE municipios_transnacional SET municipio_zh = '乌卡亚利大区 (Wū kǎ 
 WHERE municipio = 'Ucayali';
 
 
--- Geoproceso de enlace espacial capas de ruta del colibri y administrativas transnacionales
+-- Geoproceso de enlace espacial para segmentacion de capas de ruta del colibri y administrativas transnacionales
+
+ALTER TABLE ruta_colibri ADD COLUMN pais varchar(30), ADD COLUMN region varchar(40), 
+ADD COLUMN municipio varchar(80);
+
+ALTER TABLE ruta_colibri ADD COLUMN pais_zh varchar(50), ADD COLUMN region_zh varchar(50), 
+ADD COLUMN municipio_zh varchar(120);
+
+UPDATE ruta_colibri SET pais = region_transnacional.nacion FROM region_transnacional
+WHERE ST_Intersects(ruta_colibri.geom, region_transnacional.geom);
+
+UPDATE ruta_colibri SET pais_zh = region_transnacional.nacion_zh FROM region_transnacional
+WHERE ST_Intersects(ruta_colibri.geom, region_transnacional.geom);
+
+UPDATE ruta_colibri SET region = region_transnacional.region FROM region_transnacional
+WHERE ST_Intersects(ruta_colibri.geom, region_transnacional.geom);
+
+UPDATE ruta_colibri SET region_zh = region_transnacional.region_zh FROM region_transnacional
+WHERE ST_Intersects(ruta_colibri.geom, region_transnacional.geom);
+
+UPDATE ruta_colibri SET municipio = municipios_transnacional.municipio FROM municipios_transnacional
+WHERE ST_Intersects(ruta_colibri.geom, municipios_transnacional.geom);
+
+UPDATE ruta_colibri SET municipio_zh = municipios_transnacional.municipio_zh FROM municipios_transnacional
+WHERE ST_Intersects(ruta_colibri.geom, municipios_transnacional.geom);
+
 
 
 
