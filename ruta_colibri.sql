@@ -35,28 +35,44 @@ WHERE ruta_colibri.species = gbif_amazonas.species;
 
 -- Verificación 
 
-SELECT DISTINCT species, name_zh, pinyin, name_en, name_es, name_pr, name_fr 
-FROM ruta_colibri;
+SELECT DISTINCT species, name_zh, pinyin, name_en, name_es, name_pr, name_fr,
+COUNT(DISTINCT id) AS rec_gbif
+FROM ruta_colibri GROUP BY species, name_zh, pinyin, name_en, name_es, name_pr, name_fr
+ORDER BY rec_gbif DESC;
 
 --- Traduccion a nombres comunes en chino, español, ingles, portugues y frances
 
-UPDATE ruta_colibri SET name_zh = '细嘴隐蜂鸟' 
-WHERE ruta_colibri.species = 'Phaethornis philippii';
+UPDATE ruta_colibri SET name_zh = '扇尾蜂鸟' 
+WHERE ruta_colibri.species = 'Discosura longicaudus';
 
-UPDATE ruta_colibri SET pinyin = 'Xì zuǐ yǐn fēngniǎo' 
-WHERE ruta_colibri.species = 'Phaethornis philippii';
+UPDATE ruta_colibri SET pinyin = 'Shàn wěi fēngniǎo' 
+WHERE ruta_colibri.species = 'Discosura longicaudus';
 
-UPDATE ruta_colibri SET name_en = 'Needle-billed Hermit' 
-WHERE ruta_colibri.species = 'Phaethornis philippii';
+UPDATE ruta_colibri SET name_en = 'Racket-tailed Coquette' 
+WHERE ruta_colibri.species = 'Discosura longicaudus';
 
-UPDATE ruta_colibri SET name_es = 'Ermitaño picoaguja' 
-WHERE ruta_colibri.species = 'Phaethornis philippii';
+UPDATE ruta_colibri SET name_es = 'Rabudito de Raquetas' 
+WHERE ruta_colibri.species = 'Discosura longicaudus';
 
-UPDATE ruta_colibri SET name_pr = 'Rabo-branco-amarelo'
-WHERE ruta_colibri.species = 'Phaethornis philippii';
+UPDATE ruta_colibri SET name_pr = 'Bandeirinha'
+WHERE ruta_colibri.species = 'Discosura longicaudus';
 
-UPDATE ruta_colibri SET name_fr = 'Ermite de Filippi ' 
-WHERE ruta_colibri.species = 'Phaethornis philippii';
+UPDATE ruta_colibri SET name_fr = 'Coquette à raquettes' 
+WHERE ruta_colibri.species = 'Discosura longicaudus';
+
+--- Traduccion de nombres de municipios transnacionales al chino mandarin
+
+ALTER TABLE municipios_transnacional ADD COLUMN municipio_zh varchar(120);
+
+SELECT municipio, country, municipio_zh FROM municipios_transnacional;
+
+UPDATE municipios_transnacional SET municipio_zh = '乌卡亚利大区 (Wū kǎ yǎ lì dà qū)'
+WHERE municipio = 'Ucayali';
+
+
+-- Geoproceso de enlace espacial capas de ruta del colibri y administrativas transnacionales
+
+
 
 
 
