@@ -1,5 +1,5 @@
 # Proyecto BirdLatam Amazonas Colombia Base de Datos Espacial de Biodiversidad con Propositos Ecoturísticos
-## Propuesta de desarrollo de base de datos espacial y geo-visor de infraestructura digital de Información Geográfica para la promoción de Leticia y Puerto Nariño Amazonas como destinos turísticos de avistamiento de aves en el mercado emisor de China – BirdLatam.
+Propuesta de desarrollo de base de datos espacial y geo-visor de infraestructura digital de Información Geográfica para la promoción de Leticia y Puerto Nariño Amazonas como destinos turísticos de avistamiento de aves en el mercado emisor de China – BirdLatam.
 
 La Propuesta tecnológica BirdLatam pretende dar a conocer a las directivas de la Cámara Colombo-China de Inversión y Comercio una solución para el desarrollo y administración integral de una base de datos georreferenciada del sector ecoturístico en el Departamento del Amazonas Colombia y la definición de estrategias de promoción digital del conocimiento de biodiversidad de flora y fauna útiles para el logro de objetivos en materia de turismo sostenible, ofreciendo al visitante potencial la oportunidad de explorar y aprender más acerca de la riqueza de especies presentes en la región de la Amazonia colombiana. 
 
