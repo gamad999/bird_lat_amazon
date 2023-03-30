@@ -6,7 +6,7 @@ La Propuesta tecnológica BirdLatam pretende dar a conocer a las directivas de la
 Como primera estrategia para captar la atención del turista se propone ofrecer un servicio de información integral que facilite la ejecución eficiente de consultas a traves de una aplicación móvil, enfocadas en servir datos cartográficos en forma de mapas digitales que integran imágenes satelitales de alta resolución de la región y sitios turísticos idóneos para el avistamiento e interaccion con especies de flora y fauna amazónica, temáticos como datos biológicos, taxonómicos, ecológicos y de distribución geográfica de cada especie de acuerdo a la infraestructura global de datos biológicos "Global Biodiversity Information Facility GBIF", graficos como una galería fotográfica completa alojada en la API de la Infraestructura Global de Datos Biológicos GBIF, culturales como nombres comunes de cada especie en varios idiomas como chino, español, inglés, francés, portugués y lenguas locales como la tikuna útiles para propiciar la interacción de los potenciales turistas con comunidades locales, y auditivos como enlaces a bases de datos de sonidos ambientales de las especies como Xeno Canto. 
 De igual forma, se propone dentro de esta estrategia de atracción de turistas chinos, ofrecer una base de datos de riqueza de especies de colibríes alojada en la nube, como una familia biológica endémica de América y la región amazónica en su conjunto; este componente de la base de datos espacial puede sugerir una Ruta del Colibrí, que conecte localidades ubicadas en varios países como Colombia, Brasil y Perú, y así realizar un esfuerzo para consolidar a Colombia como punto de conexión de rutas ecoturisticas de avistamiento de fauna en recorridos que integren territorios transnacionales y que estimulen el interés de los visitantes por realizar recorridos de avistamiento de avifauna endémica propia de ecosistemas tropicales.
 
-### Modelo de negocios de Propuesta BirdLatam
+## Modelo de negocios de Propuesta BirdLatam
 
 La Propuesta BirdLatam para el diseño e implementación de una base de datos espacial y geovisor web está enfocada en ofrecer una solución tecnológica que apoye la promoción y posicionamiento de la región amazónica colombiana como destino turístico de avistamiento de fauna (en un principio avifauna) en el mercado turístico emisor chino. Los dos principales componentes de esta solución tecnológica son:
 1.	Base de datos con soporte de datos geográficos que recopile, almacene y administre la información soporte para la construcción de un modelo de datos de ecosistemas, territorios, infraestructura turística, transporte, biodiversidad de flora y fauna, comunidades locales, atractivos turísticos, comercio y servicios relacionados con el sector de turismo sostenible a escala local, regional y transnacional.
@@ -17,7 +17,7 @@ La labor conjunta y colaborativa de los equipos de trabajo que se propone organi
 
 
 
-### Etapas en el diseño e implementación de un SIG y base de datos espacial
+## Etapas en el diseño e implementación de un SIG y base de datos espacial
 
 Cuando se ha tomado la determinación de implementar un SIG y al margen del área temática que quiera sistematizarse, es indispensable seguir un procedimiento, una serie de pasos o etapas sucesivas, cuyo cumplimiento garantiza el éxito del sistema, su óptimo funcionamiento a través del tiempo y la justificación de la inversión. Este procedimiento se aplica genéricamente a cualquier SIG y sus etapas son:
 
@@ -30,7 +30,7 @@ Cuando se ha tomado la determinación de implementar un SIG y al margen del área 
 7.	Reacondicionar el Modelo original de acuerdo con los resultados y el desempeño del Sistema. Esto significa que el Modelo de Datos se pone a prueba mediante la manipulación de la información en el Sistema, por parte de los usuarios. Las expectativas deben satisfacerse en aspectos como: el desempeño del Sistema o dicho de otra forma, la velocidad de respuesta cuando se realzan peticiones a los servicios implementados. Tambien se espera la generación eficiente ya sea de reportes tabulares o mapas, la velocidad y efectividad en los procesos de actualización de los datos, etc.
 
 
-### Servidores en la nube y software propuestos para el desarrollo de la solución tecnológica
+## Servidores en la nube y software propuestos para el desarrollo de la solución tecnológica
 
 #### Software
 
@@ -43,13 +43,13 @@ Cuando se ha tomado la determinación de implementar un SIG y al margen del área 
 1.	Amazon Web Services AWS - Relational Databases Services RDS (alojamiento de base de datos espacial en la nube)
 2.	ESRI - ArcGIS Online (Desarrollo de Aplicación Web Móvil para el despliegue de información geográfica y temática - Geovisor web)
 
-### Guía de navegación archivos en este repositorio de Github
+## Guía de navegación archivos en este repositorio de Github
 
 Archivo pybrdlatamz.sql: puede consultar el codigo SQL de diseño preliminar de la base de datos geográfica BirdLatam
 Fichero Tablas: puede consultar las tablas resultado de consultas preliminares a la bd sobre diagnostico de biodiversidad de flora y fauna e infraestructura turística
 
 
-### Autor de la Propuesta:
+## Autor de la Propuesta:
 
 Geovanny Andrés Marmolejo De Oro
 
