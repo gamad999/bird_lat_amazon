@@ -96,6 +96,8 @@ WHERE ST_Intersects(ruta_colibri.geom, municipios_transnacional.geom);
 UPDATE ruta_colibri SET municipio_zh = municipios_transnacional.municipio_zh FROM municipios_transnacional
 WHERE ST_Intersects(ruta_colibri.geom, municipios_transnacional.geom);
 
+
+
 -- Generación de tabla de diagnostico de biodiversidad de colibries en municipios transnacionales
 
 SELECT municipio, region, pais, municipio_zh, region_zh, pais_zh, COUNT(DISTINCT species) AS riq_species,
