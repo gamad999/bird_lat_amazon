@@ -11,3 +11,10 @@ UPDATE resguardos_indigenas_amazonas SET area_has = (SELECT ST_Area(geom)/10000.
 
 SELECT nombre_res AS reguardo, matricula_, pueblo, municipio, area_has
 FROM resguardos_indigenas_amazonas;
+
+--- Diagnostico de area de resguardos por pueblo
+
+SELECT pueblo, SUM(area_has) AS tot_area_has FROM resguardos_indigenas_amazonas
+GROUP BY pueblo ORDER BY tot_area_has DESC;
+
+
